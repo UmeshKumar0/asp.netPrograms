@@ -1,0 +1,72 @@
+﻿@model IEnumerable<EFCodeFirstApproach.Models.Student>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.Raw(TempData["InsertData"])
+@Html.Raw(TempData["UpdateMessage"])
+@Html.Raw(TempData["DeleteMessage"])
+<a href='@Url.Action("Create", "Home")' class="btn btn-primary">Create New</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeSpend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeSpend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <button type="button" class="btn-primary" data-toggle="ajax-modal" data-target="#myModal" data-url="@Url.Action("Edit1")"></button>
+                <a href='@Url.Action("Edit", "Home",  new { id = item.Id })' class="btn btn-success">Edit</a> |
+                <a href='@Url.Action("Details", "Home",  new { id = item.Id })' class="btn btn-info">Details</a> |
+                <a href='@Url.Action("Delete", "Home",  new { id = item.Id })' class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<script>
+    debugger
+    $(document).ready(function () {
+        $('.btn-primary[data-toggle="ajax-modal"]').click(function () {
+            var url = $('#exampleModal').data('url');
+            $.get(url, function (data) {
+                $('#exampleModal').html(data);
+                $('#exampleModal').modal('show');
+
+            })
+        });
+    });
+
+</script>

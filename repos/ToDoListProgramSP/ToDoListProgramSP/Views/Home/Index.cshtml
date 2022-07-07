@@ -1,0 +1,91 @@
+﻿@model ToDoListProgramSP.Models.ToDoList
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllCustomerDetails</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <div style="font-family:Arial Black;">
+        <h2 style="background-color: Yellow;color: Blue; text-align: center; font-style: oblique">SATYAPRAKASH's MVC Customer CRUD Operation</h2>
+        @*<h2 style="text-align:center"></h2>*@
+        <p>
+            @*<p style="text-align:center">*@
+            @Html.ActionLink(linkText: "New Customer", actionName: "InsertCustomer", controllerName: "Customer")
+        </p>
+        <br />
+        <br />
+        <table border="1" align="center">
+            <tr>
+                <th style="background-color:Yellow;color:blue">
+                    @Html.DisplayNameFor(model => model.Title)
+
+                </th>
+                <th style="background-color: Yellow;color: blue">
+                    @Html.DisplayNameFor(model => model.TimeSpend)
+                </th>
+                </th>
+                <th style="background-color: Yellow;color: blue">
+                    Actions
+                </th>
+            </tr>
+
+            @foreach (var item in Model.ShowallData)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeSpend)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Modify", "Edit", new { id = item.ID }) |
+
+                        @Html.ActionLink("Detail", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Remove", "Delete", new { id = item.ID },
+                        new { onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+
+            }
+        </table>
+        @if (TempData["result1"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Inserted Successfully");
+            </script>
+
+        }
+        @if (TempData["result2"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Updated Successfully");
+            </script>
+
+        }
+        @if (TempData["result3"] != null)
+        {
+            <script type="text/javascript">
+
+             alert("Record Is Deleted Successfully");
+            </script>
+
+        }
+        <br />
+        <br />
+        <footer>
+            <p style="text-align:center ; color:blue">© @DateTime.Now.ToLocalTime()</p> @*Add Date Time*@
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\bin\Debug\net5.0\ToDo.Bussiness.deps.json
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\bin\Debug\net5.0\ToDo.Bussiness.dll
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\bin\Debug\net5.0\ref\ToDo.Bussiness.dll
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\bin\Debug\net5.0\ToDo.Bussiness.pdb
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.csproj.AssemblyReference.cache
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.AssemblyInfoInputs.cache
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.AssemblyInfo.cs
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.dll
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ref\ToDo.Bussiness.dll
+C:\Users\minditsys\source\repos\WebAppl-todo\ToDo.Bussiness\obj\Debug\net5.0\ToDo.Bussiness.pdb

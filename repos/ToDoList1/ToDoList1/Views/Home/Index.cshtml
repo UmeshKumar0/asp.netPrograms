@@ -1,0 +1,308 @@
+﻿@model IEnumerable<ListData1_Result>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <br />
+    <br />
+
+
+    <!-- Button trigger modal -->
+    <button type="button" id="Add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Task
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Title</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Time Spend</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="TimeSpend in Hr`s">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnAdd">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <button type="button" id="Delete" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        Delete All
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete All</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sure want to Delete All .?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="t01" class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <form>
+                        <ul>
+                            <li class="list-inline-item">Select</li>
+                            <li class="list-inline-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="select-all">
+                                </div>
+
+                            </li>
+                        </ul>
+                    </form>
+                </th>
+
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">TimeSpend</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        @foreach (ListData1_Result list in Model)
+        {
+            <tr>
+                <th scope="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="vehicle" id="flexCheckDefault1">
+                    </div>
+                </th>
+
+                <td class="ID">
+                    @list.ID
+                   
+                </td>
+                <td class="Title">
+                    <span>
+                         @list.Title
+                    </span>
+                        <input type="text" value="@list.Title" style="display:none" />
+</td>
+                <td class="TimeSpend">
+                    <span>
+                        @list.TimeSpend
+                    </span>
+                    <input type="text" value="@list.TimeSpend" style="display:none" />
+                </td>
+               
+                <td>
+                    <a class="Edit" href="javascript:;">
+                        <li class="list-inline-item">
+                            <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                        </li>
+                    </a>
+                    <a class="Update" href="javascript:;" style="display:none">Update</a>
+                    <a class="Cancel" href="javascript:;" style="display:none">Cancel</a>
+                    <a class="Delete" href="javascript:;">
+                        <li class="list-inline-item">
+                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                        </li>
+                    </a>
+                </td>
+            </tr>
+
+
+
+        }
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+    document.getElementById('select-all').onclick = function () {
+            var checkboxes = document.getElementsByName('vehicle');
+            for (var checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        }</script>
+
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //Remove the dummy row 
+            if ($("#t01 tr").length > 2) {
+                $("#t01 tr:eq(1)").remove();
+            } else {
+                var row = $("#t01 tr:last-child");
+                row.find(".Edit").hide();
+                row.find(".Delete").hide();
+                row.find("span").html('&nbsp;');
+            }
+        });
+        function AppendRow(row, ID, Title, TimeSpend) {
+            //Bind CustomerId.
+            $(".ID", row).find("span").html(ID);
+
+            //Bind Name.
+            $(".Title", row).find("span").html(Title);
+            $(".Title", row).find("input").val(Title);
+
+            //Bind Country.
+            $(".TimeSpend", row).find("span").html(TimeSpend);
+            $(".TimeSpend", row).find("input").val(TimeSpend);
+
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+
+            $("#t01").append(row);
+        };
+
+        //Add event handler.
+        $("body").on("click", "#btnAdd", function () {
+            var Title = $("#Title");
+            var TimeSpend = $("#TimeSpend");
+            var _data = {};
+            _data.Title = Title.val();
+            _data.TimeSpend = TimeSpend.val();
+            $.ajax({
+                type: "POST",
+                url: "/api/AjaxAPI/InsertData",
+                data: JSON.stringify(_data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    var row = $("#t01 tr:last-child");
+                    if ($("#t01 tr:last-child span").eq(0).html() != "&nbsp;") {
+                        row = row.clone();
+                    }
+                    AppendRow(row, r.ID, r.Title, r.TimeSpend);
+                    Title.val("");
+                    TimeSpend.val("");
+                }
+            });
+        });
+
+        //Edit event handler.
+        $("body").on("click", "#t01 .Edit", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find("input").length > 0) {
+                    $(this).find("input").show();
+                    $(this).find("span").hide();
+                }
+            });
+            row.find(".Update").show();
+            row.find(".Cancel").show();
+            row.find(".Delete").hide();
+            $(this).hide();
+        });
+
+        //Update event handler.
+        $("body").on("click", "#t01 .Update", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find("input").length > 0) {
+                    var span = $(this).find("span");
+                    var input = $(this).find("input");
+                    span.html(input.val());
+                    span.show();
+                    input.hide();
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+            row.find(".Cancel").hide();
+            $(this).hide();
+            var _data = {};
+            _data.ID = row.find(".ID").find("span").html();
+            _data.Title = row.find(".Title").find("span").html();
+            _data.TimeSpend = row.find(".TimeSpend").find("span").html();
+            $.ajax({
+                type: "POST",
+                url: "/api/AjaxAPI/UpdateData",
+                data: JSON.stringify(_data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            });
+        });
+
+        //Cancel event handler.
+        $("body").on("click", "#t01 .Cancel", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find("input").length > 0) {
+                    var span = $(this).find("span");
+                    var input = $(this).find("input");
+                    input.val(span.html());
+                    span.show();
+                    input.hide();
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Delete").show();
+            row.find(".Update").hide();
+            $(this).hide();
+        });
+
+        //Delete event handler.
+        $("body").on("click", "#t01 .Delete", function () {
+            if (confirm("Do you want to delete this row?")) {
+                var row = $(this).closest("tr");
+                var _data = {};
+                _data.ID = row.find("span").html();
+                $.ajax({
+                    type: "POST",
+                    url: "/api/AjaxAPI/DeleteData",
+                    data: JSON.stringify(_data),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if ($("#t01 tr").length > 2) {
+                            row.remove();
+                        } else {
+                            row.find(".Edit").hide();
+                            row.find(".Delete").hide();
+                            row.find("span").html('&nbsp;');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+
+</body>
+</html>

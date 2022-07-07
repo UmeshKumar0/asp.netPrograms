@@ -1,0 +1,298 @@
+﻿
+
+@model IEnumerable<WebAppl_todo.Models.List>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <br />
+    <br />
+
+
+    <!-- Button trigger modal -->
+    <button type="button" id="addbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Task
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" >Title</label>
+                            <input type="email" class="form-control"  placeholder="Title" id="addTaskI">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" >Time Spend</label>
+                            <input type="email" class="form-control" id="addTime" placeholder="TimeSpend in Hr`s">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="added">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <button type="button" id="Delete" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        Delete All
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete All</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sure want to Delete All .?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" id="dltall">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="t01" class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <form>
+                        <ul>
+                            <li class="list-inline-item">Select All </li>
+                            <li class="list-inline-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="select-all">
+                                </div>
+
+                            </li>
+                        </ul>
+                    </form>
+                </th>
+
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">TimeSpend</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="vehicle" id="flexCheckDefault1">
+                    </div>
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.time_spend)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.created_at)
+                </td>
+                <td>
+                   
+                        <li class="list-inline-item">
+                            <button class="btn btn-success btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" type="button" data-toggle="tooltip" data-placement="top" title="Edit" id="editbtn" ><i class="fa fa-edit"></i></button>
+                            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel2">Edit Data</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlInput1" >Title</label>
+                                                    <input type="email" class="form-control" id="edit-title" placeholder="Title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlInput1" >Time Spend</label>
+                                                    <input type="email" class="form-control" id="edit-time" placeholder="TimeSpend in Hr`s">
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="updatebtn">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        
+                        </li>
+                    
+                   
+                        <li class="list-inline-item">
+                            <button id="deletebtn" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                        </li>
+                    
+                </td>
+            </tr>
+
+
+
+        }
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('select-all').onclick = function () {
+            var checkboxes = document.getElementsByName('vehicle');
+            for (var checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        }</script>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script>
+
+        
+        $(document).on('click', '#dltall', function () {
+
+
+
+
+            
+            $.ajax({
+                type: "GET",
+                url: '/Home/DeleteAll',
+                dataType: "json",
+                contentType: "application/json",
+                success: function () {
+                    alert("ALL data Deleted");
+                    window.location.reload();
+
+
+
+                },
+                error: function () {
+                    alert("Error while Deleting data");
+                }
+            })
+        });
+     
+
+
+
+        $(document).on('click', '#deletebtn', function () {
+            
+
+
+            var data = { id: $(this).closest('tr').children()[1].innerText }
+            console.log(data);
+
+
+
+            $.ajax({
+                type: "GET",
+                data: data,
+                url: '/Home/Delete',
+                dataType: "json",
+                contentType: "application/json",
+                success: function () {
+                   
+                    window.location.reload();
+                    alert("Deleted Successfully");
+
+
+                },
+                error: function () {
+                    alert("Error while deleting data");
+                }
+            })
+        });
+
+        $(document).on('click', '#editbtn', function () {
+        
+            document.getElementById('edit-title').value = $(this).closest('tr').children()[2].innerText;
+            document.getElementById('edit-time').value = $(this).closest('tr').children()[3].innerText;
+           
+            
+           
+            var id = $(this).closest('tr').children()[1].innerText;
+            $(document).on('click', '#updatebtn', function () {
+                alert('updated successfully');
+                
+                var data = { id, title: $("#edit-title").val(), time_spend: $("#edit-time").val() }
+                $.ajax({
+                    type: "POST",
+                    data: data,
+                    url: '/Home/Update',
+                    datatype: "json",
+                    contenttype: "application/json",
+                    success: function () {
+                        window.location.reload();
+                    },
+                    error: function () {
+                        alert("error while editing data....");
+                    }
+                })
+            });
+        });
+
+
+        $(document).on('click', '#added', function () {
+            var data = { title: $("#addTaskI").val(), time_spend: $("#addTime").val() }
+            $.ajax({
+                type: "POST",
+                data: data,
+                url: '/Home/Insert',
+                datatype: "json",
+                contenttype: "application/json",
+                success: function () {
+                    alert("Added Successfully")
+                    window.location.reload();
+                },
+                error: function () {
+                    alert("error while inserting data....");
+                }
+            });
+
+        });
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAdd").click(function () {
+
+                var PersonalDetails = {
+                    "FullName": "vivek",
+                    "Email": "test6@gmail.com",
+                    "Password": "1234",
+                    "Mobileno": "9876543210"
+
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: '/api/values/AddCustomer',
+                    data: JSON.stringify(PersonalDetails),
+                    contentType: "application/json;charset=utf-8",
+                    success: function (data, status, xhr) {
+                        alert("The result is : " + data);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseText);
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <input id="btnAdd" type="button" value="Add" />
+</body>
+</html>

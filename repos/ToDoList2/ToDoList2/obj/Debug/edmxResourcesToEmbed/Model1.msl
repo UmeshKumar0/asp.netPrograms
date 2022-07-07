@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TodoListModelStoreContainer" CdmEntityContainer="TodoListEntities">
+    <EntitySetMapping Name="ListDatas">
+      <EntityTypeMapping TypeName="TodoListModel.ListData">
+        <MappingFragment StoreEntitySet="ListData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TimeSpend" ColumnName="TimeSpend" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DataCRUD" FunctionName="TodoListModel.Store.ListData1" />
+  </EntityContainerMapping>
+</Mapping>

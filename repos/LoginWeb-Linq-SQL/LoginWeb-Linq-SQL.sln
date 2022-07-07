@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWeb-Linq-SQL", "LoginWeb-Linq-SQL\LoginWeb-Linq-SQL.csproj", "{BE3A5650-5E82-4386-9324-C4895C472803}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE3A5650-5E82-4386-9324-C4895C472803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3A5650-5E82-4386-9324-C4895C472803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3A5650-5E82-4386-9324-C4895C472803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3A5650-5E82-4386-9324-C4895C472803}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C157797-F4E9-4EEF-B62E-706E29D76D85}
+	EndGlobalSection
+EndGlobal
