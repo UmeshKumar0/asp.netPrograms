@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CrudADO.Models.Employee>
+@{
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Employee Name</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Sr_no
+                </td>
+                <td>
+                    @item.Emp_name
+                </td>
+                <td>
+                    @item.City
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Sr_no">Edit </a>
+                     <a asp-action="Delete" asp-route-id="@item.Sr_no"> Delete</a>
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    if(@TempData["msg"]!= null)
+    {
+        <script>
+        alert('@TempData["msg"]')
+        </script>
+    }
+}

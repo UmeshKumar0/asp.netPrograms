@@ -1,0 +1,38 @@
+﻿@model asp.netWithADO.Models.AllModels
+
+@{
+}
+<h3>Student List</h3>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if(Model.studentLists != null && Model.studentLists.Count > 0)
+                    {
+                        foreach (var item in Model.studentLists)
+                        {
+                            <tr>
+                            <td>@item.StudentId</td>
+                            <td>@item.StudentName</td>
+                            <td>@item.EmailAddress</td>
+                            </tr>
+                            
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
